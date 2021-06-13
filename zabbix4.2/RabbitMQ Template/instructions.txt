@@ -1,0 +1,8 @@
+Setup user for Zabbix Monitoring
+==================================================
+rabbitmqctl add_user zbx_monitor <PASSWORD>
+rabbitmqctl set_permissions  -p / zbx_monitor "" "" ".*"
+rabbitmqctl set_user_tags zbx_monitor monitoring
+==================================================
+
+https://github.com/jasonmcintosh/rabbitmq-zabbix

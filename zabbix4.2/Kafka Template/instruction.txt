@@ -1,0 +1,13 @@
+how to enable JMX in Kafka 
+============================
+Replace the following in kafka-server-start.sh (Kafka start up script):
+
+ EXTRA_ARGS=${EXTRA_ARGS-'-name kafkaServer -loggc'}
+with
+ EXTRA_ARGS=${EXTRA_ARGS-'-name kafkaServer -loggc -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=<hostip> -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=<port>'}
+
+
+example : 
+
+EXTRA_ARGS=${EXTRA_ARGS-'-name kafkaServer -loggc -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=172.16.0.124 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=8585'}
+
